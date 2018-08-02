@@ -1,6 +1,6 @@
 {
     "name": "ameysam/payping",
-    "description": "test",
+    "description": "This is for transaction by payping api.",
     "type": "library",
     "license": "MIT",
     "authors": [
