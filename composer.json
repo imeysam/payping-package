@@ -15,5 +15,12 @@
         "psr-4": {
             "AMeysam\\PayPing\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AMeysam\\PayPing\\PayPingServiceProvider"
+            ]
+        }
     }
 }
