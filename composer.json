@@ -1,0 +1,19 @@
+{
+    "name": "ameysam/payping",
+    "description": "test",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ameysam",
+            "email": "meysam.alipuor@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AMeysam\\PayPing\\": "src/"
+        }
+    }
+}
