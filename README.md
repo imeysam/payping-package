@@ -29,7 +29,7 @@ composer require ameysam/payping
 Update your packages with ```composer update``` or install with ```composer install```.
 
 
-Find the `providers` key in `config/app.php` and register the ImageFit Service Provider.
+Find the `providers` key in `config/app.php` and register the PayPing Service Provider.
 
 for Laravel 5.1+
 ```php
