@@ -6,14 +6,14 @@
 
 ## Installation
 
-The Image-Fit Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
+The PayPing Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
 `ameysam/payping` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
 project's `composer.json`.
 
 ```json
 {
     "require": {
-        "ameysam/payping": "^1.0.0"
+        "ameysam/payping": "^1.0.1"
     }
 }
 ```
