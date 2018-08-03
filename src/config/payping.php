@@ -10,6 +10,6 @@ return [
 
     'user-key' => env('PAYPING_USER_KEY','payping user key (get by calling getUserKey method.)'),
 
-    'return-url' => env('PAYPING_RETURN_URL','you`r return url after payment'),
+    'return-url' => env('PAYPING_RETURN_URL','your return url after payment'),
 
 ];
