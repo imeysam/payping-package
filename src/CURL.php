@@ -66,7 +66,7 @@ class CURL
      *
      * @param array $headers
      */
-    public function setHeader(array $headers)
+    public function setHeader($headers)
     {
         curl_setopt($this->curl, CURLOPT_HTTPHEADER, $headers);
     }

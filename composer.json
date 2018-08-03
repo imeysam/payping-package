@@ -1,19 +1,21 @@
 {
     "name": "ameysam/payping",
-    "description": "This is for transaction by payping api.",
     "type": "library",
+    "description": "This is for transaction by payping api.",
+    "keywords": ["Laravel", "PayPing", "Payment"],
     "license": "MIT",
     "authors": [
         {
-            "name": "ameysam",
-            "email": "meysam.alipuor@gmail.com"
+            "name": "Meysam Alipuor",
+            "email": "meysam.alipuor@gmail.com",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
             "AMeysam\\PayPing\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

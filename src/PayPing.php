@@ -71,7 +71,7 @@ class PayPing
      * 
      * @return mixed
      */
-    public static function requestToken(array $body)
+    public static function requestToken($body)
     {
         $url = URL::getApiUrl('RequestToken');
 
@@ -119,7 +119,7 @@ class PayPing
      * @param array $body
      * @return mixed
      */
-    public static function verifyPayment(array $body)
+    public static function verifyPayment($body)
     {
         $url = URL::getApiUrl('VerifyPayment');
 
