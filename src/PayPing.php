@@ -77,9 +77,9 @@ class PayPing
 
         $curl = new CURL($url);
 
-        $body['UserKey'] = $body['UserKey'] ?? config('payping.user-key');
+        $body['UserKey'] = config('payping.user-key');
 
-        $body['ReturnUrl'] = $body['ReturnUrl'] ?? config('payping.return-url');
+        $body['ReturnUrl'] = !empty($body['ReturnUrl']) ? $body['ReturnUrl'] : config('payping.return-url');
 
         $curl->init('post', $body);
 
