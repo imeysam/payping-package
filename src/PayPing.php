@@ -104,11 +104,18 @@ class PayPing
      * @param $code
      * @return \Illuminate\Http\RedirectResponse
      */
-    public static function pay($code)
+    public static function pay($code, $redirect = true)
     {
         $url = URL::getUrl('Pay');
 
-        return redirect()->away("{$url}{$code}");
+        $location = "{$url}{$code}";
+
+        if($redirect)
+        {
+            return redirect()->away($location);
+        }
+
+        return $location;
     }
 
     /**
@@ -117,9 +124,10 @@ class PayPing
      * Call after a payment is finish.
      * 
      * @param array $body
+     * @param int $amount
      * @return mixed
      */
-    public static function verifyPayment($body)
+    public static function verifyPayment($body, $amount)
     {
         $url = URL::getApiUrl('VerifyPayment');
 
@@ -138,7 +146,21 @@ class PayPing
 
         $curl->close();
 
-        return $result;
+        if(is_numeric($result) && $result == $amount)
+        {
+            return [
+                'status' => true,
+                'message' => 'تراکنش شما با موفقیت انجام شد.',
+            ];
+        }
+        else
+        {
+            $result = json_decode($result, true);
+            return [
+                'status' => false,
+                'message' => !empty($result['Message']) ? $result['Message'] : 'متاسفانه تراکنش با موفقیت انجام نشد.',
+            ];
+        }
     }
 
     /**
