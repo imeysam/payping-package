@@ -1,8 +1,8 @@
 {
     "name": "ameysam/payping",
     "type": "library",
-    "description": "This is for transaction by payping api.",
-    "keywords": ["Laravel", "PayPing", "Payment"],
+    "description": "This is for simple (payment & verify payment) transaction by payping api.",
+    "keywords": ["Laravel", "PayPing", "Payment", "Payment-Verify"],
     "license": "MIT",
     "authors": [
         {

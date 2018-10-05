@@ -52,28 +52,14 @@ Copy the package config to your local config with the publish command:
 php artisan vendor:publish --provider="AMeysam\PayPing\PayPingServiceProvider"
 ```
 
-> After publish the package files you must open payping.php in config folder and set the username and password.
+> After publish the package files you must open payping.php in config folder and set the token value.
 > 
 
 > **Like this:**
 
-	'username' => env('PAYPING_USERNAME', 'Your payping username'),
-    'password' => env('PAYPING_PASSWORD', 'Your payping password'),
+	'token' => env('PAYPING_TOKEN', 'payping token (get by calling getToken method.)'),
     
-> 
-> after call getToken method and set the token to payping.php file:
-
-> **like this:**
->
-
-    'token' => env('PAYPING_TOKEN', 'payping token (get by calling getToken method.)'),
-    
->
-> after call getUserKey method and set the user key to payping.php file:
-> **like this:**
->
-
-    'user-key' => env('PAYPING_USER_KEY', 'payping user key (get by calling getUserKey method.)'),
+>   
     
 >
 > Note: You can set return url for after payment to redirect them or you can pass return url to requestToken method.
@@ -84,7 +70,7 @@ php artisan vendor:publish --provider="AMeysam\PayPing\PayPingServiceProvider"
     
     or
     
-    $body['ReturnUrl'] = 'http://your-url';
+    $body['returnUrl'] = 'http://your-url';
     PayPing::requestToken($body);
     
 >
@@ -93,12 +79,6 @@ you can set the keys and line number in your .env file
 
 > **like this:**
 
-> PAYPING_USERNAME=your username
-
-> PAYPING_PASSWORD=your password
-
 > PAYPING_TOKEN=token
-
-> PAYPING_USER_KEY=user-key
 
 > PAYPING_RETURN_URL=http://your.url
