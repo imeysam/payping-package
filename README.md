@@ -13,7 +13,7 @@ project's `composer.json`.
 ```json
 {
     "require": {
-        "ameysam/payping": "^1.0.3"
+        "ameysam/payping": "^1.1.0"
     }
 }
 ```

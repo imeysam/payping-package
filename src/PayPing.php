@@ -9,10 +9,11 @@ class PayPing
      * Call any time that you want to connect to payment page.
      *
      * @param array $body : body of request.
+     * @param $is_redirect : If you want to redirect to the location, pass TRUE value for $redirect parameter.
      *
      * @return mixed
      */
-    public static function requestPayment($body)
+    public static function requestPayment($body, $is_redirect = true)
     {
         $url = URL::getApiUrl('RequestPay');
 
@@ -27,14 +28,15 @@ class PayPing
             'Authorization:Bearer ' . config('payping.token'),
         ]);
 
-//        $code = str_replace('"', '', $curl->exec());
         $result = $curl->exec();
 
         $result = json_decode($result, true);
 
         $curl->close();
 
-        return $result['code'];
+        $code = $result['code'];
+
+        return self::pay($code, $is_redirect);
 
     }
 
@@ -47,13 +49,13 @@ class PayPing
      * @param $redirect
      * @return \Illuminate\Http\RedirectResponse
      */
-    public static function pay($code, $redirect = true)
+    private static function pay($code, $redirect)
     {
         $url = URL::getUrl('Pay');
 
         $location = "{$url}{$code}";
 
-        /** if you want to redirect to the location, pass TRUE value for $redirect parameter.*/
+        /** */
         if ($redirect)
         {
             return redirect()->away($location);
@@ -87,7 +89,8 @@ class PayPing
 
         $curl->close();
 
-        if (!$result && http_response_code() === 200) {
+        if (!$result && http_response_code() === 200)
+        {
             return ['status' => true];
         }
 
@@ -97,4 +100,3 @@ class PayPing
         ];
     }
 }
-       
