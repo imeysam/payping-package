@@ -94,9 +94,13 @@ class PayPing
             return ['status' => true];
         }
 
+        $result = str_replace('"', '', $result);
+
+        preg_match('/^\{((\"\d\")|(\d))+\:([^\:]+)\}$/i', $result, $message);
+
         return [
             'status' => false,
-            'message' => str_replace('"', '', $result),
+            'message' => (!empty($message) ? end($message) : $result),
         ];
     }
 }
